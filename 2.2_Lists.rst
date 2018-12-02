@@ -1,0 +1,649 @@
+
+
+
+.. raw:: html
+
+   <h1 align="center">
+
+LISTS IN PYTHON
+
+.. raw:: html
+
+   </h1>
+
+Table of Contents
+-----------------
+
+.. raw:: html
+
+   <div class="alert alert-block alert-info" style="margin-top: 20px">
+
+.. raw:: html
+
+   <li>
+
+About the Dataset
+
+.. raw:: html
+
+   </li>
+
+.. raw:: html
+
+   <li>
+
+Lists
+
+.. raw:: html
+
+   </li>
+
+.. raw:: html
+
+   <li>
+
+Quiz
+
+.. raw:: html
+
+   </li>
+
+.. raw:: html
+
+   <p>
+
+.. raw:: html
+
+   </p>
+
+Estimated Time Needed: 15 min
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <hr>
+
+.. raw:: html
+
+   <center>
+
+.. raw:: html
+
+   <h2>
+
+About the Dataset
+
+.. raw:: html
+
+   </h2>
+
+.. raw:: html
+
+   </center>
+
+Imagine you received many music recommendations from your friends and
+compiled all of the recommendations into a table, with specific
+information about each movie.
+
+The table has one row for each album and several columns:
+
+-  **artist** - Name of the artist
+-  **album** - Name of the album
+-  **released\_year** - Year the album was released
+-  **length\_min\_sec** - Length of the album (hours,minutes,seconds)
+-  **genre** - Genre of the album
+-  **music\_recording\_sales\_millions** - Music recording sales
+   (millions in USD) on
+   `SONG://DATABASE <http://www.song-database.com/>`__
+-  **claimed\_sales\_millions** - Album's claimed sales (millions in
+   USD) on `SONG://DATABASE <http://www.song-database.com/>`__
+-  **date\_released** - Date on which the album was released
+-  **soundtrack** - Indicates if the album is the movie soundtrack (Y)
+   or (N)
+-  **rating\_of\_friends** - Indicates the rating from your friends from
+   1 to 10
+
+The dataset can be seen below:
+
+.. raw:: html
+
+   <table font-size:xx-small style="width:25%">
+
+.. raw:: html
+
+   <tr>
+
+::
+
+    <th>Artist</th>
+    <th>Album</th> 
+    <th>Released</th>
+    <th>Length</th>
+    <th>Genre</th> 
+    <th>Music recording sales (millions)</th>
+    <th>Claimed sales (millions)</th>
+    <th>Released</th>
+    <th>Soundtrack</th>
+    <th>Rating (friends)</th>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+::
+
+    <td>Michael Jackson</td>
+    <td>Thriller</td> 
+    <td>1982</td>
+    <td>00:42:19</td>
+    <td>Pop, rock, R&B</td>
+    <td>46</td>
+    <td>65</td>
+    <td>30-Nov-82</td>
+    <td></td>
+    <td>10.0</td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   <tr>
+
+::
+
+    <td>AC/DC</td>
+    <td>Back in Black</td> 
+    <td>1980</td>
+    <td>00:42:11</td>
+    <td>Hard rock</td>
+    <td>26.1</td>
+    <td>50</td>
+    <td>25-Jul-80</td>
+    <td></td>
+    <td>8.5</td>
+
+.. raw:: html
+
+   </tr>
+
+::
+
+    <tr>
+    <td>Pink Floyd</td>
+    <td>The Dark Side of the Moon</td> 
+    <td>1973</td>
+    <td>00:42:49</td>
+    <td>Progressive rock</td>
+    <td>24.2</td>
+    <td>45</td>
+    <td>01-Mar-73</td>
+    <td></td>
+    <td>9.5</td>
+
+.. raw:: html
+
+   </tr>
+
+::
+
+    <tr>
+    <td>Whitney Houston</td>
+    <td>The Bodyguard</td> 
+    <td>1992</td>
+    <td>00:57:44</td>
+    <td>Soundtrack/R&B, soul, pop</td>
+    <td>26.1</td>
+    <td>50</td>
+    <td>25-Jul-80</td>
+    <td>Y</td>
+    <td>7.0</td>
+
+.. raw:: html
+
+   </tr>
+
+::
+
+    <tr>
+    <td>Meat Loaf</td>
+    <td>Bat Out of Hell</td> 
+    <td>1977</td>
+    <td>00:46:33</td>
+    <td>Hard rock, progressive rock</td>
+    <td>20.6</td>
+    <td>43</td>
+    <td>21-Oct-77</td>
+    <td></td>
+    <td>7.0</td>
+
+.. raw:: html
+
+   </tr>
+
+::
+
+    <tr>
+    <td>Eagles</td>
+    <td>Their Greatest Hits (1971-1975)</td> 
+    <td>1976</td>
+    <td>00:43:08</td>
+    <td>Rock, soft rock, folk rock</td>
+    <td>32.2</td>
+    <td>42</td>
+    <td>17-Feb-76</td>
+    <td></td>
+    <td>9.5</td>
+
+.. raw:: html
+
+   </tr>
+
+::
+
+    <tr>
+    <td>Bee Gees</td>
+    <td>Saturday Night Fever</td> 
+    <td>1977</td>
+    <td>1:15:54</td>
+    <td>Disco</td>
+    <td>20.6</td>
+    <td>40</td>
+    <td>15-Nov-77</td>
+    <td>Y</td>
+    <td>9.0</td>
+
+.. raw:: html
+
+   </tr>
+
+::
+
+    <tr>
+    <td>Fleetwood Mac</td>
+    <td>Rumours</td> 
+    <td>1977</td>
+    <td>00:40:01</td>
+    <td>Soft rock</td>
+    <td>27.9</td>
+    <td>40</td>
+    <td>04-Feb-77</td>
+    <td></td>
+    <td>9.5</td>
+
+.. raw:: html
+
+   </tr>
+
+.. raw:: html
+
+   </table>
+
+.. raw:: html
+
+   <hr>
+
+.. raw:: html
+
+   <center>
+
+.. raw:: html
+
+   <h2>
+
+Lists
+
+.. raw:: html
+
+   </h2>
+
+.. raw:: html
+
+   </center>
+
+We are going to take a look at lists in Python. A list is a sequenced
+collection of different objects such as integers, strings, and other
+lists as well. The address of each element within a list is called an
+'index'. An index is used to access and refer to items within a list.
+
+.. raw:: html
+
+   <h4 align="center">
+
+Representation of a list
+
+.. raw:: html
+
+   </h4>
+
+To create a list, type the list within square brackets **[ ]**, with
+your content inside the parenthesis and separated by commas. Let’s try
+it!
+
+.. code:: python
+
+    L = ["Michael Jackson" , 10.1,1982]
+    L
+
+We can use negative and regular indexing with a list :
+
+.. raw:: html
+
+   <h4 align="center">
+
+Representation of a list
+
+.. raw:: html
+
+   </h4>
+
+.. code:: python
+
+    print('the same element using negative and positive indexing:\n Postive:',L[0],
+    '\n Negative:' , L[-3]  )
+    print('the same element using negative and positive indexing:\n Postive:',L[1],
+    '\n Negative:' , L[-2]  )
+    print('the same element using negative and positive indexing:\n Postive:',L[2],
+    '\n Negative:' , L[-1]  )
+
+Lists can contain strings, floats, and integers. We can nest other
+lists, and we can also nest tuples and other data structures. The same
+indexing conventions apply for nesting:
+
+.. code:: python
+
+    [ "Michael Jackson", 10.1,1982,[1,2],("A",1) ]
+
+
+We can also perform slicing in lists. For example, if we want the last
+two elements, we use the following command:
+
+.. code:: python
+
+    L = [ "Michael Jackson", 10.1,1982,"MJ",1]
+    L
+
+.. raw:: html
+
+   <h4 align="center">
+
+Representation of a list
+
+.. raw:: html
+
+   </h4>
+
+.. code:: python
+
+    L[3:5]
+
+We can use the method "extend" to add new elements to the list:
+
+.. code:: python
+
+    L = [ "Michael Jackson", 10.2]
+    L.extend(['pop',10])
+    L
+
+Another similar method is 'appended'. If we apply 'appended' instead of
+'extended', we add one element to the list:
+
+.. code:: python
+
+    L = [ "Michael Jackson", 10.2]
+    L.append(['pop',10])
+    L
+
+Each time we apply a method, the list changes. If we apply "extend" we
+add two new elements to the list. The list **L** is then modified by
+adding two new elements:
+
+.. code:: python
+
+    L = [ "Michael Jackson", 10.2]
+    L.extend(['pop',10])
+    L
+
+If we append the list **['a','b']** we have one new element consisting
+of a nested list:
+
+.. code:: python
+
+    L.append(['a','b'])
+    L
+
+As lists are mutable, we can change them. For example, we can change the
+first element as follows:
+
+.. code:: python
+
+    A = ["disco",10,1.2]
+    print('Before change:', A)
+    A[0] = 'hard rock'
+    print('After change:', A)
+
+We can also delete an element of a list using the **del** command:
+
+.. code:: python
+
+    print('Before change:', A)
+    del(A[0])
+    print('After change:', A)
+
+We can convert a string to a list using 'split'. For example, the method
+**split** translates every group of characters separated by a space into
+an element in a list:
+
+.. code:: python
+
+    'hard rock'.split()
+
+
+We can use the split function to separate strings on a specific
+character. We pass the character we would like to split on into the
+argument, which in this case is a comma. The result is a list, and each
+element corresponds to a set of characters that have been separated by a
+comma:
+
+.. code:: python
+
+    'A,B,C,D'.split(',')
+
+
+When we set one variable **B** equal to **A**; both **A** and **B** are
+referencing the same list in memory :
+
+.. code:: python
+
+    A = ["hard rock",10,1.2]
+    B = A
+    print('A:', A)
+    print('B:', B)
+
+
+
+Initially, the value of the first element in \*\* B\*\* is set as hard
+rock. If we change the first element in **A** to 'banana', we get an
+unexpected side effect. As **A** and **B ** are referencing the same
+list, if we change list **A**, then list **B** also changes. If we check
+the first element of **B** we get banana instead of hard rock:
+
+.. code:: python
+
+    print('Before changing A[0], B[0] is ',B[0])
+    A[0] = "banana"
+    print('After changing A[0], A[0] is ',A[0])
+    print('After changing A[0], B[0] is ',B[0])
+
+This is demonstrated in the following figure:
+
+
+
+You can clone list **A** by using the following syntax:
+
+.. code:: python
+
+    B = A[:]
+    B
+
+Variable **B** references a new copy or clone of the original list; this
+is demonstrated in the following figure:
+
+
+
+Now if you change **A**, **B** will not change:
+
+.. code:: python
+
+    print('Before changing A[0], B[0] is ',B[0])
+    A[0] = "apple"
+    print('After changing A[0], A[0] is ',A[0])
+    print('After changing A[0], B[0] is ',B[0])
+
+
+.. raw:: html
+
+   <center>
+
+.. raw:: html
+
+   <h2>
+
+Quiz
+
+.. raw:: html
+
+   </h2>
+
+.. raw:: html
+
+   </center>
+
+Create a list 'a\_list' , with the following elements 1, “hello”, [1,2,3 ] and True.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="q1" class="collapse">
+
+::
+
+    a_list=[1, 'hello', [1,2,3 ] , True]
+    a_list
+
+.. raw:: html
+
+   </div>
+
+Find the value stored at index 1 of 'a\_list'.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="q2" class="collapse">
+
+::
+
+    a_list[1]
+
+.. raw:: html
+
+   </div>
+
+Retrieve the elements stored at index 1 and 2 of 'a\_list'.
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="q3" class="collapse">
+
+::
+
+    a_list[1:3]
+
+4) Concatenate the following lists A=[1,'a'] abd B=[2,1,'d']:
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+
+
+.. raw:: html
+
+   <div align="right">
+
+Click here for the solution
+
+.. raw:: html
+
+   </div>
+
+.. raw:: html
+
+   <div id="q4" class="collapse">
+
+::
+
+    A=[1,'a'] 
+    B=[2,1,'d']
+    A+B
+
+
+
+About the Authors:
+==================
+
+`Joseph
+Santarcangelo <https://www.linkedin.com/in/joseph-s-50398b136/>`__ has a
+PhD in Electrical Engineering, his research focused on using machine
+learning, signal processing, and computer vision to determine how videos
+impact ]human cognition. Joseph has been working for IBM since he
+completed his PhD.
+
+.. raw:: html
+
+   <hr>
+
+Copyright © 2017
+`cognitiveclass.ai <cognitiveclass.ai?utm_source=bducopyrightlink&utm_medium=dswb&utm_campaign=bdu>`__.
+This notebook and its source code are released under the terms of the
+`MIT License <https://bigdatauniversity.com/mit-license/>`__.​
+
